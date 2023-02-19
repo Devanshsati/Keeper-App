@@ -4,6 +4,9 @@ import Fab from "@mui/material/Fab";
 import Zoom from "@mui/material/Zoom";
 
 function CreateArea(props) {
+
+  const [isExpanded, setExpanded] = useState(false);
+
   const [note, setNote] = useState({
     title: "",
     content: ""
@@ -16,6 +19,10 @@ function CreateArea(props) {
     });
   }
 
+  function expand(){
+    setExpanded(true);
+  }
+
   return (
     <div>
       <form>
@@ -26,6 +33,7 @@ function CreateArea(props) {
           value={note.title}
         />
         <textarea
+          onClick={expand}
           onChange={handleChange}
           name="content"
           placeholder="Take a note..."
